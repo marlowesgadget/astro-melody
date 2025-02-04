@@ -11,7 +11,7 @@ tags:
 - documentation
 - Python
 - Less
-title: Pages 
+title: トップページ 
 ---
 
 **Pages** are files that live in the `src/pages/` subdirectory of your Astro project. They are responsible for handling routing, data loading, and overall page layout for every page in your website.
