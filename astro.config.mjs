@@ -42,5 +42,7 @@ export default defineConfig({
             forward: ["dataLayer.push"],
             debug: false,
         },
-		}), linkCard()],
+		}), linkCard(
+        openInNewTab: true,
+        )],
 });
