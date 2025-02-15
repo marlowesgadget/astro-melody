@@ -7,8 +7,6 @@ import { remarkModifiedTime } from "./src/utils/remark-modified-time.mjs";
 import partytown from "@astrojs/partytown";
 import pagefind from "astro-pagefind";
 import tailwind from "@astrojs/tailwind";
-
-
 import linkCard from "astro-link-card";
 
 
