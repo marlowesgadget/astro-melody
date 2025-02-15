@@ -35,12 +35,19 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [remarkModifiedTime],
     },
-    integrations: [mdx(), sitemap(), pagefind(), tailwind(), partytown({
-        config: {
+    integrations: [
+        mdx(),
+        sitemap(),
+        pagefind(),
+        tailwind(),
+        partytown({
+          config: {
             forward: ["dataLayer.push"],
             debug: false,
-        },
-		}), linkCard(
-        openInNewTab: true,
-        )],
-});
+          },
+        }),
+        linkCard({
+          openInNewTab: true,  // 正しくカンマを追加
+        }),
+      ],
+})
