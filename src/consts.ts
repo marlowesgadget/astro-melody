@@ -2,21 +2,21 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Base Page Metadata, src/layouts/BaseLayout.astro
-export const BRAND_NAME = "AstroMelody";
-export const SITE_TITLE = "AstroMelody";
-export const SITE_DESCRIPTION = "An Astro Theme for Visual Storytelling";
+export const BRAND_NAME = "Gadget Detective";
+export const SITE_TITLE = "Gadget Detective";
+export const SITE_DESCRIPTION = "Gadget Detecitive Site";
 export const LIGHT_THEME = 'corporate';
 export const DARK_THEME = 'halloween';
 
 // Tags Page Metadata, src/pages/tags/index.astro
-export const Tags_TITLE = "AstroMelody - All Tags";
+export const Tags_TITLE = "Gadget Detective - All Tags";
 export const Tags_DESCRIPTION =
-  "AstroMelody - All tags and the count of articles related to each tag";
+  "Gadget Detective - All tags and the count of articles related to each tag";
 
 // Tags Page Metadata, src/pages/tags/[tag]/[page].astro
 export function getTagMetadata(tag: string) {
   return {
-    title: `All articles on '${tag}' tag in AstroMelody`,
+    title: `All articles on '${tag}' tag in Gadget Detective`,
     description: `Explore articles about ${tag} for different perspectives and in-depth analysis.`,
   };
 }
@@ -24,16 +24,16 @@ export function getTagMetadata(tag: string) {
 // Category Page Metadata, src/pages/category/[category]/[page].astro
 export function getCategoryMetadata(category: string) {
   return {
-    title: `All articles in '${category}' category in AstroMelody`,
-    description: `Browse all articles under the ${category} category in AstroMelody`,
+    title: `All articles in '${category}' category in Gadget Detective`,
+    description: `Browse all articles under the ${category} category in Gadget Detective`,
   };
 }
 
 // Header Links, src/components/Header.astro
 export const HeaderLinks = [
-  { href: "/category/One/1/", title: "One" },
-  { href: "/category/Two/1/", title: "Two" },
-  { href: "/category/Three/1/", title: "Three" },
+  { href: "/category/One/1/", title: "Phones" },
+  { href: "/category/Two/1/", title: "Mac/PC" },
+  { href: "/category/Three/1/", title: "Watch" },
 ];
 
 // Footer Links, src/components/Footer.astro

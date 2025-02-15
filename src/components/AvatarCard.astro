@@ -1,0 +1,24 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  avatar: string;
+}
+
+const { name, role, avatar } = Astro.props;
+---
+
+<div class="flex items-center space-x-4">
+  <!-- アバター画像 -->
+  <img
+    src={avatar}
+    alt={name}
+    class="w-10 h-10 rounded-full border-2 border-gray-300 m-0"
+  />
+
+  <!-- ユーザー情報 -->
+  <div class="flex items-center space-x-4">
+  <h2 class="text-sm font-semibold m-0">{name}</h2>
+  <small class="text-gray-500 m-0">{role}</small>
+</div>
+</div>

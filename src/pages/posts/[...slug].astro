@@ -4,6 +4,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import RelatedPostsCard from "@components/RelatedPostsCard.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
+import AvatarCard from "@components/AvatarCard.astro";
+
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -20,7 +22,34 @@ const { Content } = await render(post);
 <BaseLayout title={post.data.title} description={post.data.description}>
   <main>
     <article class="prose mx-auto dark:prose-invert">
-      <div class="prose-h1 text-center">
+    <!-- パンくずリスト -->
+      <nav class="breadcrumbs text-xs m-0 p-0">
+        <ul class="m-0 p-0">
+          <li>
+            <a href="/" class="no-underline">
+            <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            </a>
+          </li>
+          <li class="text-xs">
+            <a href="/blog" class="no-underline">Post</a>
+          </li>
+          <li class="text-xs">{post.data.title}</li>
+        </ul>
+      </nav>
+      
+      <div class="prose-h1 text-center mt-24 mb-24">
+
         <h1>{post.data.title}</h1>
       </div>
       <div>
@@ -30,13 +59,31 @@ const { Content } = await render(post);
           )
         }
       </div>
+      <!-- タグ -->
+      <div class="flex gap-2 prose-a:no-underline text-xs">
+        {post.data.tags.map((tag) => (
+          <span class="badge badge-outline badge-sm">
+            <a href={`/tags/${tag}/1/`}>{tag}</a>
+          </span>
+        ))}
+      </div>
+
+      <!-- 発行日更新日 -->
+      <div class="prose mt-4 mb-4 flex justify-between">
+        <small>
+          Publish on <FormattedDate date={post.data.pubDate} />，Update on <FormattedDate date={new Date().toISOString()} />
+        </small>
+      </div>
+      <!-- アバターカード -->
+      <AvatarCard class="mb-2" name="Ai-an | 皧庵" role="Architectural historian" avatar="/avatar.svg" />
+</br>
       <div>
         <Content />
       </div>
-      <div class="flex gap-2 prose-a:no-underline">
+      <div class="flex gap-2 prose-a:no-underline  text-xs">
         {
           post.data.tags.map((tag) => (
-            <span class="badge badge-outline badge-md">
+            <span class="badge badge-outline badge-sm">
               <a href={`/tags/${tag}/1/`}>{tag}</a>
             </span>
           ))

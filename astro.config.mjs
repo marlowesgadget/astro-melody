@@ -9,42 +9,38 @@ import pagefind from "astro-pagefind";
 import tailwind from "@astrojs/tailwind";
 
 
+import linkCard from "astro-link-card";
+
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
-	trailingSlash: "always",
-	prefetch: {
-		prefetchAll: true,
-		defaultStrategy: 'viewport',
-	},
+    site: 'https://example.com',
+    trailingSlash: "always",
+    prefetch: {
+        prefetchAll: true,
+        defaultStrategy: 'viewport',
+    },
 
-	experimental: {
-		
-	},
+    experimental: {
+        
+    },
 
-	image: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "images.unsplash.com",
-			},
-		],
-	},
+    image: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "images.unsplash.com",
+            },
+        ],
+    },
 
-	markdown: {
-		remarkPlugins: [remarkModifiedTime],
-	},
-	integrations: [
-		mdx(),
-		sitemap(),
-		pagefind(),
-		tailwind(),
-
-		partytown({
-			config: {
-				forward: ["dataLayer.push"],
-				debug: false,
-			},
-		}),
-	],
+    markdown: {
+        remarkPlugins: [remarkModifiedTime],
+    },
+    integrations: [mdx(), sitemap(), pagefind(), tailwind(), partytown({
+        config: {
+            forward: ["dataLayer.push"],
+            debug: false,
+        },
+		}), linkCard()],
 });
