@@ -1,0 +1,74 @@
+/* OG画像を非表示にして、余白を詰める */
+.og-card-image-container {
+    display: none; /* OG画像を完全に非表示にする */
+}
+
+/* リンクカードの全体設定 */
+.og-card-container>a {
+    --padding-x: 1rem;
+    --padding-y: .7rem;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* 画像を非表示にした後、テキストを縦に並べる */
+    border-radius: var(--rounded-box, 1rem);
+    border: 1px solid var(--tw-prose-hr); /* フレーム（枠線）の復活 */
+    width: 100%;
+    padding: var(--padding-y) var(--padding-x); /* 上下左右の余白を調整 */
+    text-decoration: none;
+    transition: background-color .2s;
+    background-color: white; /* 背景色を設定 */
+    margin-top: 2rem;  /* ボーダーの上の外側余白 */
+    margin-bottom: 2rem;  /* ボーダーの下の外側余白 */
+}
+
+/* タイトル部分の設定 */
+.og-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--tw-prose-headings);
+    overflow: hidden;
+    display: block; /* blockで改行を許可 */
+    margin-bottom: 0.5rem;  /* ボーダーの下の外側余白 */
+}
+
+/* 説明文部分の設定 */
+.og-card-description {
+    font-size: .8rem;
+    color: #707070;
+    margin-bottom: .5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* 自動改行を有効にする */
+    line-height: 1.4; /* 行間を調整 */
+    @media (prefers-color-scheme: dark) {
+        color: #a3a3a3;
+    }
+}
+
+/* URL部分の設定 */
+.og-card-url-container {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.og-card-favicon {
+    margin-top: .15rem;
+    margin-bottom: 0;
+    border-radius: 30%;
+}
+
+.og-card-url {
+    font-size: .8rem;
+    color: #525252;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    @media (prefers-color-scheme: dark) {
+        color: #d4d4d4;
+    }
+}
+
